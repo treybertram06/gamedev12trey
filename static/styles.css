@@ -9,13 +9,13 @@ body {
     margin: 0; 
 }
 
-#pageTitle {
+.pageTitle {
     color: var(--textColour);
     text-align: center;
     margin: 20px;
 }
 
-#body01 {
+.body01 {
     background-color: var(--secondaryColour);
     border: 3px solid var(--primaryColour);
     border-radius: 5px;
@@ -35,7 +35,7 @@ a:hover {
     text-decoration: underline; 
 }
 
-#buttonStyle01 {
+.buttonStyle01 {
     width: 100px;
     height: 30px;
     border-radius: 5px;
@@ -46,7 +46,7 @@ a:hover {
     font-weight: bold;
 }
 
-#buttonStyle01:hover {
+.buttonStyle01:hover {
     background-color: var(--primaryColour);
     color: black;
     font-weight: bold;
