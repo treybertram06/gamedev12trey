@@ -23,7 +23,7 @@ body {
 }
 
 h3 {
-    color: var(--primaryColour); 
+    color: var(--textColour); 
 }
 
 a {
