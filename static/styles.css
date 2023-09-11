@@ -1,19 +1,37 @@
 :root {
     --primaryColour: #388c53;
     --secondaryColour: #5BFF8F;
+    --textColour: #333; 
+}
 
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
 }
 
 #pageTitle {
-    color: var(--primaryColour);
-    align-content: center;
+    color: var(--textColour);
+    text-align: center;
     margin: 20px;
-
 }
 
 #body01 {
     background-color: var(--secondaryColour);
     border: 3px solid var(--primaryColour);
     border-radius: 5px;
-
+    padding: 20px;
 }
+
+h3 {
+    color: var(--primaryColour); 
+}
+
+a {
+    color: var(--primaryColour); 
+    text-decoration: none; 
+}
+
+a:hover {
+    text-decoration: underline; 
+}
+
