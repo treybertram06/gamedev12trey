@@ -8,3 +8,8 @@
     color: var(--primaryColour)
     
 }
+
+body {
+    background-color: var(--secondaryColour);
+
+}
