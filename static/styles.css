@@ -3,3 +3,8 @@
     --secondaryColour: #5BFF8F;
 
 }
+
+#pageTitle {
+    color: var(--primaryColour)
+    
+}
