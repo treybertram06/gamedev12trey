@@ -42,13 +42,13 @@ a:hover {
     border: 1px solid var(--primaryColour);
     padding: 5px;
     background-color: var(--primaryColour);
-    color: var(--textColour);
+    color: black;
     font-weight: bold;
 }
 
 .buttonStyle01:hover {
     background-color: var(--secondaryColour);
-    color: black;
+    color: var(--textColour);
     font-weight: bold;
 }
 
