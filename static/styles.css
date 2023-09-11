@@ -39,15 +39,15 @@ a:hover {
     width: 100px;
     height: 30px;
     border-radius: 5px;
-    border: 1px solid var(--secondaryColour);
+    border: 1px solid var(--primaryColour);
     padding: 5px;
-    background-color: var(--secondaryColour);
+    background-color: var(--primaryColour);
     color: white;
     font-weight: bold;
 }
 
 .buttonStyle01:hover {
-    background-color: var(--primaryColour);
+    background-color: var(--secondaryColour);
     color: black;
     font-weight: bold;
 }
