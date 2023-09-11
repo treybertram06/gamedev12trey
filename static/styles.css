@@ -5,11 +5,13 @@
 }
 
 #pageTitle {
-    color: var(--primaryColour)
-    
+    color: var(--primaryColour);
+
 }
 
-body {
+#body01 {
     background-color: var(--secondaryColour);
+    border: 3px solid var(--primaryColour);
+    border-radius: 5px;
 
 }
