@@ -35,3 +35,20 @@ a:hover {
     text-decoration: underline; 
 }
 
+#buttonStyle01 {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--secondaryColour);
+    padding: 5px;
+    background-color: var(--secondaryColour);
+    color: white;
+    font-weight: bold;
+}
+
+#buttonStyle01:hover {
+    background-color: var(--primaryColour);
+    color: black;
+    font-weight: bold;
+}
+
