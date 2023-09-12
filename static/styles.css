@@ -55,7 +55,8 @@ a:hover {
 
 .navbar {
   position: sticky;
-  overflow-x: visible;
+  overflow: visible;
+
   background-color: #333;
 }
 
