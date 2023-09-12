@@ -1,4 +1,4 @@
-Things to do:<br>
-Backend development practice (its on my github)<br>
-Make a game<br>
+Things to do:
+Backend development practice (its on my github)
+Make a game
 put proper css on my index
