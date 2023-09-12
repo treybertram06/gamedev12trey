@@ -1,19 +1,7 @@
 <html>
   <head>
 
-    <script>
-      document.getElementById('colorChangeButton').addEventListener('click', function() {
-      let root = document.documentElement;
-
-      let primaryColor = root.style.getPropertyValue('--primaryColour');
-      let secondaryColor = root.style.getPropertyValue('--secondaryColour');
-      let textColor = root.style.getPropertyValue('--textColour');
-
-      root.style.setProperty('--primaryColour', secondaryColor);
-      root.style.setProperty('--secondaryColour', primaryColor);
-      root.style.setProperty('--textColour', textColor);
-      });
-    </script>
+   
     
     <title> Basic Web Stuff</title>
     <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
@@ -63,6 +51,18 @@
     <a href="https://treybertram06.github.io/gamedev11trey/public/t1a01basic-web-trey.html">Last years page</a>
     
     
-    
+    <script>
+      document.getElementById('colorChangeButton').addEventListener('click', function() {
+      let root = document.documentElement;
+
+      let primaryColor = root.style.getPropertyValue('--primaryColour');
+      let secondaryColor = root.style.getPropertyValue('--secondaryColour');
+      let textColor = root.style.getPropertyValue('--textColour');
+
+      root.style.setProperty('--primaryColour', secondaryColor);
+      root.style.setProperty('--secondaryColour', primaryColor);
+      root.style.setProperty('--textColour', textColor);
+      });
+    </script>
     <body>
       </html>
