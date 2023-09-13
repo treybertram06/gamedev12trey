@@ -3,6 +3,23 @@
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <script src="https://treybertram06.github.io/gamedev12trey/static/js.js"></script>
         <title>Lists and Tables</title>
+        <script>
+          var dPad = document.getElementById('d-pad');
+          var speed = 5; // Change this to make the D-pad move faster or slower
+
+        document.getElementById('up').addEventListener('mousedown', function() {
+            moveDpad(0, -speed);
+        });
+        document.getElementById('down').addEventListener('mousedown', function() {
+            moveDpad(0, speed);
+        });
+        document.getElementById('left').addEventListener('mousedown', function() {
+            moveDpad(-speed, 0);
+        });
+        document.getElementById('right').addEventListener('mousedown', function() {
+            moveDpad(speed, 0);
+        });
+        </script>
     </head>
     <body class="body01">
 
@@ -83,5 +100,23 @@
                                                       }">
           
           <div id="myDiv01">...</div>
+
+          <table id="d-pad" style="position: absolute; top: 50px; left: 50px;">
+            <tr>
+                <td></td>
+                <td><button id="up">Up</button></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><button id="left">Left</button></td>
+                <td></td>
+                <td><button id="right">Right</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="down">Down</button></td>
+                <td></td>
+            </tr>
+        </table>
     <a href="https://treybertram06.github.io/gamedev11trey/public/t1a02tables-trey.html">Tables and Listsists</a>
 </html>
