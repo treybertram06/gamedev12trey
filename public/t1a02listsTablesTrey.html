@@ -4,33 +4,33 @@
         <script src="https://treybertram06.github.io/gamedev12trey/static/js.js"></script>
         <title>Lists and Tables</title>
         <script>
-window.onload = function() {
-    var dPad = document.getElementById('d-pad');
-    var speed = 5; // Change this to make the D-pad move faster or slower
+          window.onload = function() {
+            var dPad = document.getElementById('d-pad');
+            var speed = 5; // Change this to make the D-pad move faster or slower
 
-    document.getElementById('up').addEventListener('mousedown', function() {
-        moveDpad(0, -speed);
-    });
+            document.getElementById('up').addEventListener('mousedown', function() {
+              moveDpad(0, -speed);
+            });
 
-    document.getElementById('down').addEventListener('mousedown', function() {
-        moveDpad(0, speed);
-    });
+            document.getElementById('down').addEventListener('mousedown', function() {
+              moveDpad(0, speed);
+            });
 
-    document.getElementById('left').addEventListener('mousedown', function() {
-        moveDpad(-speed, 0);
-    });
+            document.getElementById('left').addEventListener('mousedown', function() {
+              moveDpad(-speed, 0);
+            });
 
-    document.getElementById('right').addEventListener('mousedown', function() {
-        moveDpad(speed, 0);
-    });
+            document.getElementById('right').addEventListener('mousedown', function() {
+              moveDpad(speed, 0);
+            });
 
-    function moveDpad(dx, dy) {
-        var top = parseInt(dPad.style.top, 10);
-        var left = parseInt(dPad.style.left, 10);
-        dPad.style.top = (top + dy) + 'px';
-        dPad.style.left = (left + dx) + 'px';
-    }
-}
+            function moveDpad(dx, dy) {
+              var top = parseInt(dPad.style.top, 10);
+              var left = parseInt(dPad.style.left, 10);
+              dPad.style.top = (top + dy) + 'px';
+              dPad.style.left = (left + dx) + 'px';
+            }
+          }
         </script>
     </head>
     <body class="body01">
