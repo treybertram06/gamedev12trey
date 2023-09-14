@@ -72,3 +72,42 @@ a:hover {
   background: #ddd;
   color: black;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ol {
+    counter-reset: list-counter;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ol li {
+    counter-increment: list-counter;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+ol li:last-child {
+    border-bottom: none;
+}
+
+ol li:before {
+    content: counters(list-counter, ".") " ";
+    position: relative;
+    left: -1.3em;
+    color: #7f8c8d;
+}
