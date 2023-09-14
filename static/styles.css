@@ -146,8 +146,6 @@ ol li:before {
 }
 
 .form01 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
     padding: 10px 20px;
     margin: 10px 0;
     border: none;
