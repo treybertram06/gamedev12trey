@@ -111,3 +111,50 @@ ol li:before {
     left: -1.3em;
     color: #7f8c8d;
 }
+
+.form01 {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.form01 label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form01 input[type="text"],
+.form01 input[type="password"],
+.form01 input[type="file"],
+.form01 input[type="email"],
+.form01 input[type="url"],
+.form01 input[type="tel"],
+.form01 input[type="search"],
+.form01 input[type="date"],
+.form01 input[type="color"],
+.form01 input[type="range"],
+.form01 input[type="number"],
+.form01 input[type="time"],
+.form01 input[type="week"],
+.form01 input[type="month"],
+.form01 input[type="datetime-local"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.form01 input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form01 input[type="submit"]:hover {
+    background-color: #45a049;
+}
