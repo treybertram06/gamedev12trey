@@ -19,6 +19,13 @@
         document.getElementById('right').addEventListener('mousedown', function() {
             moveDpad(speed, 0);
         });
+
+        function moveDpad(dx, dy) {
+          var top = parseInt(dPad.style.top, 10);
+          var left = parseInt(dPad.style.left, 10);
+          dPad.style.top = (top + dy) + 'px';
+          dPad.style.left = (left + dx) + 'px';
+      }
         </script>
     </head>
     <body class="body01">
