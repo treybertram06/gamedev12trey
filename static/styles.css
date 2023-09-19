@@ -156,3 +156,64 @@ ol li:before {
 .form01 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+.fortStory {
+    border: 5px outset red;
+    color: green;
+    background-color: blue;
+    max-width: 30%;
+    max-height: 125px;
+    font-family: serif;
+    margin: auto;
+  }
+  
+  .shrek {
+    border: 5px solid green;
+    border-radius: 15px;
+    color: green;
+    background-color: brown;
+    max-width: 100%;
+    max-height: 200px;
+    overflow: scroll;
+  
+    
+  }
+    
+  .bortnite {
+    border: 5px outset red;
+    border-radius: 15px;
+    color: red;
+    background-color: blue;
+    max-width: 30%;
+    max-height: 50px;
+    font-family: fantasy;
+    margin: auto;
+  }
+  
+.para1 {
+border: 5px solid red;
+border-radius: 15px;
+outline-style: dotted;
+outline-color: blue;
+outline-width: medium;
+color: blue;
+background-color: pink;
+
+}
+
+.bodyFortnite { 
+background-image: url("https://cdn2.unrealengine.com/14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg");
+font-family: cursive;  
+color: orange;
+}
+.h1ButAwful {
+font-style: oblique;
+color: orange;
+outline-style: solid;
+outline-color: red;
+outline-width: medium;
+background-color: blue;
+max-width: 30%;
+margin: auto;
+
+  }
