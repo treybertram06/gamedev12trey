@@ -174,9 +174,6 @@ ol li:before {
     background-color: brown;
     max-width: 100%;
     max-height: 200px;
-    overflow: scroll;
-  
-    
   }
     
   .bortnite {
@@ -201,19 +198,3 @@ background-color: pink;
 
 }
 
-.bodyFortnite { 
-background-image: url("https://cdn2.unrealengine.com/14br-consoles-1920x1080-wlogo-1920x1080-432974386.jpg");
-font-family: cursive;  
-color: orange;
-}
-.h1ButAwful {
-font-style: oblique;
-color: orange;
-outline-style: solid;
-outline-color: red;
-outline-width: medium;
-background-color: blue;
-max-width: 30%;
-margin: auto;
-
-  }
