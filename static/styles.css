@@ -52,7 +52,7 @@ a:hover {
     background-color: var(--secondaryColour);
     color: var(--textColour);
     font-weight: bold;
-    transform: scale(2.2)
+    transform: scale(1.2)
 }
 
 .navbar {
