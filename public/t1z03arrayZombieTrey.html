@@ -57,6 +57,12 @@
             
                 personDictionary.push(newPerson)
 
+                let newOption = document.createElement('option');
+                newOption.text = newPersonName;
+
+                let nameSelector = document.getElementById('nameSelector');
+                nameSelector.add(newOption);
+
                 document.getElementById('newPersonName').value = ''
                 document.getElementById('isNewPersonAZombie').checked = false
 
