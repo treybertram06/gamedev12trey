@@ -44,7 +44,9 @@
                 }
             }
 
-            function addPerson() {
+            function addPerson(event) {
+                event.PreventDefault()
+
                 let newPersonName = document.getElementById('newPersonName').value
                 let isNewPersonAZombie = document.getElementById('isNewPersonAZombie').checked
 
@@ -97,7 +99,7 @@
           <div id="zombieStatusOutput">...</div>
           <br>
 
-          <form class="form01" onsubmit="event.preventDefault(); addPerson();"> 
+          <form class="form01" onsubmit="addPerson(event)"> 
             New Persons Name: <input type="text" placeholder="Enter Name..." id="newPersonName"><br>
             Are They A Zombie? <input type="checkbox" id="isNewPersonAZombie">
             <input type="submit" class="buttonStyle01">
