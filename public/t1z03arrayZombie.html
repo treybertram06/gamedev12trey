@@ -1,3 +1,44 @@
 <html>
-    
+    <head>
+        <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
+        <title>Array Zombie</title>
+        <script>
+            let myThingName = ['Jon', 'Dan', 'Fred']
+            let myThingZombie = [true, false, true]
+
+            function updateSelection() {
+                myInput = document.getElementById(mySelect01).value
+
+                for (myLoop=0; myLoop < 4; myLoop++) {
+                    if (myThingName[myLoop] == myInput){
+                        if (myThingZombie[myLoop]){
+                            document.getElementById('myDiv01').innerHTML = myInput + 'is a Zombie'
+                        } else {
+                            document.getElementById('myDiv01').innerHTML = myInput + 'is NOT a Zombie'
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body class="body01">
+
+        <div class="navbar">
+            <a href="./index.html">Index</a>
+            <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
+        </div>
+      
+        <h5>Version 0.0.2</h5>
+          <h1 class="pageTitle">T1Z03 Array Zombie Trey</h1>
+          <br><hr>
+
+          <select id="mySelect01" size=1 onChange="updateSelection()">
+            <option></option>
+            <option>Jon</option>
+            <option>Dan</option>
+            <option>Fred</option>
+          </select> a Zombie? Really!
+          <div id="myDiv01">...</div>
+    </body>
 </html>
