@@ -43,6 +43,27 @@
                     }
                 }
             }
+
+            function addPerson() {
+    // Step 1: Retrieve values from input fields
+    let newPersonName = document.getElementById('newPersonName').value;
+    let isNewPersonAZombie = document.getElementById('isNewPersonAZombie').checked;
+    
+    // Step 2: Create a new person object
+    let newPerson = {
+        name: newPersonName,
+        zombieStatus: isNewPersonAZombie
+    };
+
+    // Step 3: Add the new person object to the personDictionary
+    personDictionary.push(newPerson);
+
+    // Optionally, clear the input fields
+    document.getElementById('newPersonName').value = '';
+    document.getElementById('isNewPersonAZombie').checked = false;
+
+    // Optionally, update any relevant displays or UI components
+}
         </script>
     </head>
 
@@ -79,5 +100,10 @@
             <option>Bob</option>
           </select> a Zombie? Really!
           <div id="zombieStatusOutput">...</div>
+
+          <form> 
+            <input type="text" id="newPersonName">
+            <input type="checkbox" id="isNewPersonAZombie">
+          </form>
     </body>
 </html>
