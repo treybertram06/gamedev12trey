@@ -97,7 +97,7 @@
           <div id="zombieStatusOutput">...</div>
           <br>
 
-          <form class="form01"> 
+          <form class="form01" onsubmit="event.preventDefault(); addPerson();"> 
             New Persons Name: <input type="text" placeholder="Enter Name..." id="newPersonName"><br>
             Are They A Zombie? <input type="checkbox" id="isNewPersonAZombie">
             <input type="submit" class="buttonStyle01">
