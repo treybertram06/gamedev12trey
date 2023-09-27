@@ -7,9 +7,9 @@
             let myThingZombie = [true, false, true]
 
             function updateSelection() {
-                myInput = document.getElementById(mySelect01).value
+                let myInput = document.getElementById("mySelect01").value
 
-                for (myLoop=0; myLoop < 4; myLoop++) {
+                for (myLoop=0; myLoop < 3; myLoop++) {
                     if (myThingName[myLoop] == myInput){
                         if (myThingZombie[myLoop]){
                             document.getElementById('myDiv01').innerHTML = myInput + 'is a Zombie'
