@@ -5,6 +5,13 @@
         <script>
             let myThingName = ['Jon', 'Dan', 'Fred']
             let myThingZombie = [true, false, true]
+            let personDictionary = [
+                {name: "Jon", zombieStatus: true},
+                {name: "Dan", zombieStatus: false},
+                {name: "Fred", zombieStatus: true},
+                {name: "Billy", zombieStatus: false},
+                {name: "Bob", zombieStatus: true},
+            ]
 
             function updateSelectionArray() {
                 let myInput = document.getElementById("mySelect01").value
@@ -16,6 +23,23 @@
                         } else {
                             document.getElementById('myDiv01').innerHTML = myInput + ' is NOT a Zombie'
                         }
+                    }
+                }
+            }
+
+            function updateZombieOutput() {
+                let nameInput = document.getElementById('nameSelector').value
+
+                for (let itemLoop = 0; itemLoop < personDictionary.length; itemLoop++) {
+                    if (personDictionary[itemLoop].name === nameInput) {
+                        let zombieStatusOutput = document.getElementById('zombieStatusOutput');
+                    
+                        if (personDictionary[itemLoop].zombieStatus) {
+                            zombieStatusOutput.innerHTML = nameInput + ' is a Zombie';
+                        } else {
+                            zombieStatusOutput.innerHTML = nameInput + ' is NOT a Zombie';
+                        }
+                break;
                     }
                 }
             }
@@ -40,5 +64,17 @@
             <option>Fred</option>
           </select> a Zombie? Really!
           <div id="myDiv01">...</div>
+
+          <br><br>
+
+          <select id="nameSelector" size=1 onChange="updateZombieOutput()">
+            <option></option>
+            <option>Jon</option>
+            <option>Dan</option>
+            <option>Fred</option>
+            <option>Billy</option>
+            <option>Bob</option>
+          </select> a Zombie? Really!
+          <div id="zombieStatusOutput">...</div>
     </body>
 </html>
