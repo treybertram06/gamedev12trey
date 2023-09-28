@@ -31,8 +31,12 @@
                 ageInput = document.getElementById('ageInput').value;
                 jobInput = document.getElementById('jobInput').value;
             
-                myCharacter = new myEmployee(nameInput, ageInput, jobInput);
-                myCharacter.myShow();
+                if (nameInput && ageInput && jobInput != "") {
+                    myCharacter = new myEmployee(nameInput, ageInput, jobInput);
+                    myCharacter.myShow();
+                } else {
+                    alert("Please fill in all fields")
+                }
             }
         </script>
     </head>
