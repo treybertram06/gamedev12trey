@@ -48,21 +48,27 @@
                 let newPersonName = document.getElementById('newPersonName').value
                 let isNewPersonAZombie = document.getElementById('isNewPersonAZombie').checked
 
-                let newPerson = {
-                    name: newPersonName,
-                    zombieStatus: isNewPersonAZombie
+                if (newPersonName != "") {
+                    let newPerson = {
+                        name: newPersonName,
+                        zombieStatus: isNewPersonAZombie
+                    }
+                
+                    personDictionary.push(newPerson)
+    
+                    let newOption = document.createElement('option')
+                    newOption.text = newPersonName
+    
+                    let nameSelector = document.getElementById('nameSelector')
+                    nameSelector.add(newOption)
+    
+                    document.getElementById('newPersonName').value = ''
+                    document.getElementById('isNewPersonAZombie').checked = false
+                } else {
+                    alert("Please enter a name.")
                 }
-            
-                personDictionary.push(newPerson)
 
-                let newOption = document.createElement('option');
-                newOption.text = newPersonName;
-
-                let nameSelector = document.getElementById('nameSelector');
-                nameSelector.add(newOption);
-
-                document.getElementById('newPersonName').value = ''
-                document.getElementById('isNewPersonAZombie').checked = false
+                
 
             }
         </script>
