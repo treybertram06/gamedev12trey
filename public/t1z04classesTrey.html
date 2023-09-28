@@ -15,12 +15,24 @@
                 }
             }
             
-            function updateOutput() {
-                nameInput = document.getElementById('nameInput').value
-                ageInput = document.getElementById('ageInput').value
+            class myEmployee extends myPerson {
+                constructor(passName, passAge, jobTitle) {
+                    super(passName, passAge);
+                    this.jobTitle = jobTitle;
+                }
 
-                myCharacter = new myPerson(nameInput, ageInput)
-                myCharacter.myShow()
+                myShow() {
+                    document.getElementById('myDiv01').innerHTML = 'Hello ' + this.myName + '. You are ' + this.myAge + ' years old and work as a ' + this.jobTitle + '<br>';
+                }
+            }
+
+            function updateOutput() {
+             nameInput = document.getElementById('nameInput').value;
+                ageInput = document.getElementById('ageInput').value;
+                jobInput = document.getElementById('jobInput').value;
+            
+                myCharacter = new myEmployee(nameInput, ageInput, jobInput);
+                myCharacter.myShow();
             }
         </script>
     </head>
