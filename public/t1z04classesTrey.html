@@ -3,6 +3,25 @@
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <title>Classes</title>
         <script>
+
+            class myPerson {
+                constructor(passName, passAge) {
+                    this.myName = passName
+                    this.myAge = passAge
+                }
+
+                myShow() {
+                    document.getElementById('myDiv01').innerHTML = 'Hello ' + this.myName + '. You are ' + this.myAge + ' years old<br>'
+                }
+            }
+            
+            function updateOutput() {
+                nameInput = document.getElementById('nameInput').value
+                ageInput = document.getElementById('ageInput').value
+
+                myCharacter = new myPerson(nameInput, ageInput)
+                myCharacter.myShow()
+            }
         </script>
     </head>
 
@@ -17,6 +36,10 @@
           <h1 class="pageTitle">T1Z04 Classes Trey</h1>
           <br><hr>
 
- 
+        <form class="form01">
+            <input type="text" placeholder="Enter name..." id="nameInput">
+            <input type="number" id="ageInput">
+            <input type="button" value="Class Person" onClick="updateOutput()">
+        </form>
     </body>
 </html>
