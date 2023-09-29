@@ -197,6 +197,10 @@ outline-color: blue;
 outline-width: medium;
 color: blue;
 background-color: pink;
+}
 
+.containerStyleCenter {
+    margin-left: auto;
+    margin-right: auto;
 }
 
