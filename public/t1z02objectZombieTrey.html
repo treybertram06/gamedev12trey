@@ -66,7 +66,13 @@
           <h1 class="pageTitle">T1Z03 Array Zombie Trey</h1>
           <br><hr>
 
-          <select id="nameSelector" size=1 onChange="updateZombieOutput()">
+          <form class="form01"> 
+            New Persons Name: <input type="text" placeholder="Enter Name..." id="newPersonName"><br>
+            Are They A Zombie? <input type="checkbox" id="isNewPersonAZombie">
+            <button type="button" class="buttonStyle01" onclick="addPerson()">Add Person</button>
+          </form>
+
+          <select id="nameSelector" align="center" size=1 onChange="updateZombieOutput()">
             <option></option>
             <option>Jon</option>
             <option>Dan</option>
@@ -74,13 +80,7 @@
             <option>Billy</option>
             <option>Bob</option>
           </select> a Zombie? Really!
-          <div id="zombieStatusOutput">...</div>
+          <div align="center" id="zombieStatusOutput">...</div>
           <br>
-
-          <form class="form01"> 
-            New Persons Name: <input type="text" placeholder="Enter Name..." id="newPersonName"><br>
-            Are They A Zombie? <input type="checkbox" id="isNewPersonAZombie">
-            <button type="button" class="buttonStyle01" onclick="addPerson()">Add Person</button>
-        </form>
     </body>
 </html>
