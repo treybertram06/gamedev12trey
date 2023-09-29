@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
+        <title>Array Zombie</title>
+        <script>
+            let personDictionary = [
+                {name: "Jon", zombieStatus: true},
+                {name: "Dan", zombieStatus: false},
+                {name: "Fred", zombieStatus: true},
+                {name: "Billy", zombieStatus: false},
+                {name: "Bob", zombieStatus: true},
+            ]
+
+            function updateZombieOutput() {
+                let nameInput = document.getElementById('nameSelector').value
+
+                for (let itemLoop = 0; itemLoop < personDictionary.length; itemLoop++) {
+                    if (personDictionary[itemLoop].name === nameInput) {
+                        let zombieStatusOutput = document.getElementById('zombieStatusOutput')
+                    
+                        if (personDictionary[itemLoop].zombieStatus) {
+                            zombieStatusOutput.innerHTML = nameInput + ' is a Zombie'
+                        } else {
+                            zombieStatusOutput.innerHTML = nameInput + ' is NOT a Zombie'
+                        }
+                break
+                    }
+                }
+            }
+
+            function addPerson() {
+                let newPersonName = document.getElementById('newPersonName').value
+                let isNewPersonAZombie = document.getElementById('isNewPersonAZombie').checked
+
+                if (newPersonName != "") {
+                    let newPerson = {
+                        name: newPersonName,
+                        zombieStatus: isNewPersonAZombie
+                    }
+                
+                    personDictionary.push(newPerson)
+    
+                    let newOption = document.createElement('option')
+                    newOption.text = newPersonName
+    
+                    let nameSelector = document.getElementById('nameSelector')
+                    nameSelector.add(newOption)
+    
+                    document.getElementById('newPersonName').value = ''
+                    document.getElementById('isNewPersonAZombie').checked = false
+                } else {
+                    alert("Please enter a name.")
+                }
+            }
+        </script>
+    </head>
+
+    <body class="body01">
+
+        <div class="navbar">
+            <a href="./index.html">Index</a>
+            <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
+        </div>
+      
+        <h5>Version 0.0.2</h5>
+          <h1 class="pageTitle">T1Z03 Array Zombie Trey</h1>
+          <br><hr>
+
+          <select id="nameSelector" size=1 onChange="updateZombieOutput()">
+            <option></option>
+            <option>Jon</option>
+            <option>Dan</option>
+            <option>Fred</option>
+            <option>Billy</option>
+            <option>Bob</option>
+          </select> a Zombie? Really!
+          <div id="zombieStatusOutput">...</div>
+          <br>
+
+          <form class="form01"> 
+            New Persons Name: <input type="text" placeholder="Enter Name..." id="newPersonName"><br>
+            Are They A Zombie? <input type="checkbox" id="isNewPersonAZombie">
+            <button type="button" class="buttonStyle01" onclick="addPerson()">Add Person</button>
+        </form>
+    </body>
+</html>
