@@ -98,6 +98,17 @@
         function clearDisplay(){
             displayElement.value = ""
         }
+
+       document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if ((key >= '0' && key <= '9') || key == '+' || key == '-' || key == '*' || key == '/') {
+                appendToDisplay(key);
+            } else if (key == 'Enter') {
+                calculateResult();
+            } else if (key == 'Backspace') {
+                clearDisplay();
+            }
+        });
     </script>
 </body>
 </html>
