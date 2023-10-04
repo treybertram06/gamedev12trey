@@ -43,12 +43,13 @@
         </div>
     </div>
 
-   <script>
+    <script>
         const displayElement = document.getElementById('display')
         const historyElement = document.getElementById('history')
         let lastButtonWasEquals = false;
         let history = [];
-
+        let clearCount = 0; // Add this line
+    
         function appendToDisplay(number){
             if (lastButtonWasEquals) {
                 displayElement.value = "";
@@ -56,7 +57,7 @@
             }
             displayElement.value += number;
         }
-
+    
         function calculateResult(){
             try {
                 const result = eval(displayElement.value.split("=")[0]);
@@ -71,12 +72,18 @@
                 historyElement.value = history.join('\n');
             }
         }
-
+    
         function clearDisplay(){
+            clearCount++; // Increment the counter each time the function is called
             displayElement.value = ""
+            if (clearCount == 2) { // If the function is called twice, clear the history
+                historyElement.value = "";
+                history = [];
+                clearCount = 0; // Reset the counter
+            }
         }
-
-       document.addEventListener('keydown', function(event) {
+    
+        document.addEventListener('keydown', function(event) {
             const key = event.key;
             if ((key >= '0' && key <= '9') || key == '+' || key == '-' || key == '*' || key == '/') {
                 appendToDisplay(key);
