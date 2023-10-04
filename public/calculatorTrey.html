@@ -61,10 +61,15 @@
         </div>
     </div>
 
-    <script>
+   <script>
         const displayElement = document.getElementById('display')
+        let lastButtonWasEquals = false;
 
         function appendToDisplay(number){
+            if (lastButtonWasEquals) {
+                displayElement.value = "";
+                lastButtonWasEquals = false;
+            }
             displayElement.value += number;
         }
 
@@ -72,8 +77,10 @@
             try {
                 const result = eval(displayElement.value.split("=")[0]);
                 displayElement.value += "=" + result;
+                lastButtonWasEquals = true;
             } catch (error){
                 displayElement.value += "= error";
+                lastButtonWasEquals = true;
             }
         }
 
