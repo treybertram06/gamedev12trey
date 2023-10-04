@@ -4,39 +4,16 @@
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
     <style>
-        #calculator {
-            background-color: #95989b;
-            max-width: 300px;
-            margin: 0 auto;
-            margin-top: 22%;
-            -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 19px 34px 18px rgba(0,0,0,0.38); 
-            box-shadow: 0px 10px 13px -7px #000000, 0px 19px 34px 18px rgba(0,0,0,0.38);
-        }
-        button {
-            margin: 5px;
-        }
-        .btn-group{
-            width: 100%;
-        }
-        button:active {
-            transform: scale(1.1);
-        }
-        body{
-            background-color: #353535;
-            user-select: none;
-        }
-        textarea {
-            resize: none;
-        }
+        
     </style>
 </head>
 <body class="body01">
     <div class="container">
-        <div id="calculator" class="card">
+        <div id="calculator" class="calculator" class="card">
             <div class="card-body">
                 Q&A: <br><input type="text" id="display" class="form-control mb-2" disabled>
                 <br>
-                History: <br><textarea id="history" rows="5" cols="30" readonly></textarea>
+                History: <br><textarea class="noResize" id="history" rows="5" cols="30" readonly></textarea>
 
                 <div class="btn-group">
                     <button class="btn btn-secondary" onclick="appendToDisplay('1')">1</button>
