@@ -27,15 +27,12 @@
         }
     </style>
 </head>
-<body>
+<body class="body01">
     <div class="container">
         <div id="calculator" class="card">
-            <div class="card-header">
-                CALCULATOR THAT WORKS I THINK
-            </div>
             <div class="card-body">
-                Q: <input type="text" id="history" class="form-control mb-2" disabled>
-                A:<input type="text" id="display" class="form-control mb-2" disabled>
+                Q&A: <input type="text" id="display" class="form-control mb-2" disabled>
+
                 <div class="btn-group">
                     <button class="btn btn-secondary" onclick="appendToDisplay('1')">1</button>
                     <button class="btn btn-secondary" onclick="appendToDisplay('2')">2</button>
@@ -66,24 +63,22 @@
 
     <script>
         const displayElement = document.getElementById('display')
-        const historyElement = document.getElementById('history')
+
         function appendToDisplay(number){
             displayElement.value += number;
         }
+
         function calculateResult(){
             try {
-                const result = eval(document.getElementById('display').value);
-            historyElement.value = displayElement.value;
-                document.getElementById('display').value = result;
-        } catch (error){
-            const result = 'error'
-            historyElement.value = displayElement.value;
-                document.getElementById('display').value = result;
+                const result = eval(displayElement.value.split("=")[0]);
+                displayElement.value += "=" + result;
+            } catch (error){
+                displayElement.value += "= error";
+            }
         }
-    }
+
         function clearDisplay(){
             displayElement.value = ""
-            historyElement.value = "cleared"
         }
     </script>
 </body>
