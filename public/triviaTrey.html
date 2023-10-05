@@ -3,16 +3,26 @@
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <title>Trivia</title>
         <script>
+            let correctAnswer = "";
             async function apiCall() {
                 const myData = await fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
                 const myTemp = await myData.json()
                 console.log(myTemp)
                 document.getElementById("question").innerHTML = myTemp.results[0].question
+                correctAnswer = myTemp.results[0].correct_answer;
                 let answers = myTemp.results[0].incorrect_answers
-                answers.push(myTemp.results[0].correct_answer)
+                answers.push(correctAnswer)
                 answers.sort(() => Math.random() - 0.5)
                 for(let i=0; i<answers.length; i++) {
                     document.getElementById("answer" + (i+1)).innerHTML = answers[i]
+                }
+            }
+
+            function checkAnswer(answer) {
+                if(answer === correctAnswer) {
+                    alert("Correct!");
+                } else {
+                    alert("Incorrect, the correct answer was " + correctAnswer);
                 }
             }
         </script>
@@ -29,10 +39,10 @@
         <input type="button" value="Trivia" onclick="apiCall()">
         <br><br>
         <div id="question">...</div>
-        <div id="answer1">...</div>
-        <div id="answer2">...</div>
-        <div id="answer3">...</div>
-        <div id="answer4">...</div>
+        <button id="answer1" onclick="checkAnswer(this.innerHTML)">...</button>
+        <button id="answer2" onclick="checkAnswer(this.innerHTML)">...</button>
+        <button id="answer3" onclick="checkAnswer(this.innerHTML)">...</button>
+        <button id="answer4" onclick="checkAnswer(this.innerHTML)">...</button>
         <hr>
         <div id="myDiv02">...</div>
     </body>
