@@ -7,30 +7,33 @@
                 const myData = await fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
                 const myTemp = await myData.json()
                 console.log(myTemp)
-                document.getElementById("myDiv01").innerHTML = "myTemp.results[0].question: " + myTemp.results[0].question
-                document.getElementById("myDiv01").innerHTML = JSON.stringify(myTemp, null, "<br>")
+                document.getElementById("question").innerHTML = myTemp.results[0].question
+                let answers = myTemp.results[0].incorrect_answers
+                answers.push(myTemp.results[0].correct_answer)
+                answers.sort(() => Math.random() - 0.5)
+                for(let i=0; i<answers.length; i++) {
+                    document.getElementById("answer" + (i+1)).innerHTML = answers[i]
+                }
             }
         </script>
     </head>
-
     <body class="body01">
-
         <div class="navbar">
             <a href="./index.html">Index</a>
             <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
         </div>
-      
         <h5>Version 0.0.1</h5>
         <h1 class="pageTitle">Trivia Trey</h1>
         <br><hr>
         From: <a href="https://opentdb.com/api_config.php">https://opentdb.com/api_config.php</a>
-
         <input type="button" value="Trivia" onclick="apiCall()">
         <br><br>
-
-        <div id="myDiv01">...</div>
+        <div id="question">...</div>
+        <div id="answer1">...</div>
+        <div id="answer2">...</div>
+        <div id="answer3">...</div>
+        <div id="answer4">...</div>
         <hr>
         <div id="myDiv02">...</div>
-
     </body>
 </html>
