@@ -20,9 +20,9 @@
 
             function checkAnswer(answer) {
                 if(answer === correctAnswer) {
-                    alert("Correct!");
+                    document.getElementById("myDiv02").innerHTML = "Correct!";
                 } else {
-                    alert("Incorrect, the correct answer was " + correctAnswer);
+                    document.getElementById("myDiv02").innerHTML = "Incorrect, the correct answer was " + correctAnswer;
                 }
             }
 
