@@ -9,6 +9,7 @@
                 const myTemp = await myData.json()
                 console.log(myTemp)
                 document.getElementById("question").innerHTML = myTemp.results[0].question
+                document.getElementById("myDiv02").innerHTML = "Please select an answer.";
                 correctAnswer = decodeHTMLEntities(myTemp.results[0].correct_answer);
                 let answers = myTemp.results[0].incorrect_answers
                 answers.push(correctAnswer)
@@ -43,13 +44,13 @@
         <br><hr>
         From: <a href="https://opentdb.com/api_config.php">https://opentdb.com/api_config.php</a>
         <br><br>
-        <div id="question">...</div>
-        <button class="buttonStyle01" id="answer1" onclick="checkAnswer(this.innerHTML)">...</button>
-        <button class="buttonStyle01" id="answer2" onclick="checkAnswer(this.innerHTML)">...</button>
-        <button class="buttonStyle01" id="answer3" onclick="checkAnswer(this.innerHTML)">...</button>
-        <button class="buttonStyle01" id="answer4" onclick="checkAnswer(this.innerHTML)">...</button>
+        <div id="question"></div>
+        <button class="buttonStyle01" id="answer1" onclick="checkAnswer(this.innerHTML)"></button>
+        <button class="buttonStyle01" id="answer2" onclick="checkAnswer(this.innerHTML)"></button>
+        <button class="buttonStyle01" id="answer3" onclick="checkAnswer(this.innerHTML)"></button>
+        <button class="buttonStyle01" id="answer4" onclick="checkAnswer(this.innerHTML)"></button>
         <hr>
-        <input type="button" value="New Question" onclick="apiCall()">
-        <div id="myDiv02">...</div>
+        <button class="buttonStyle01" onclick="apiCall()">New Question</button>
+        <div id="myDiv02"></div>
     </body>
 </html>
