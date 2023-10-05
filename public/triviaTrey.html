@@ -5,16 +5,16 @@
         <script>
             let correctAnswer = "";
             async function apiCall() {
-                const myData = await fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
+                const myData = await fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
                 const myTemp = await myData.json()
                 console.log(myTemp)
                 document.getElementById("question").innerHTML = myTemp.results[0].question
-                correctAnswer = myTemp.results[0].correct_answer;
+                correctAnswer = decodeHTMLEntities(myTemp.results[0].correct_answer);
                 let answers = myTemp.results[0].incorrect_answers
                 answers.push(correctAnswer)
                 answers.sort(() => Math.random() - 0.5)
                 for(let i=0; i<answers.length; i++) {
-                    document.getElementById("answer" + (i+1)).innerHTML = answers[i]
+                    document.getElementById("answer" + (i+1)).innerHTML = decodeHTMLEntities(answers[i])
                 }
             }
 
@@ -25,9 +25,15 @@
                     alert("Incorrect, the correct answer was " + correctAnswer);
                 }
             }
+
+            function decodeHTMLEntities(text) {
+                var textArea = document.createElement('textarea');
+                textArea.innerHTML = text;
+                return textArea.value;
+            }
         </script>
     </head>
-    <body class="body01" onload="apiCall()">
+    <body class="body01">
         <div class="navbar">
             <a href="./index.html">Index</a>
             <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
@@ -35,14 +41,14 @@
         <h5>Version 0.0.1</h5>
         <h1 class="pageTitle">Trivia Trey</h1>
         <br><hr>
-        From: <a href="https://opentdb.com/api_config.php">https://opentdb.com/api_config.php</a><br>
+        From: <a href="https://opentdb.com/api_config.php">https://opentdb.com/api_config.php</a>
+        <input type="button" value="Trivia" onclick="apiCall()">
         <br><br>
         <div id="question">...</div>
         <button id="answer1" onclick="checkAnswer(this.innerHTML)">...</button>
         <button id="answer2" onclick="checkAnswer(this.innerHTML)">...</button>
         <button id="answer3" onclick="checkAnswer(this.innerHTML)">...</button>
         <button id="answer4" onclick="checkAnswer(this.innerHTML)">...</button>
-        <input type="button" value="New Question" onclick="apiCall()">
         <hr>
         <div id="myDiv02">...</div>
     </body>
