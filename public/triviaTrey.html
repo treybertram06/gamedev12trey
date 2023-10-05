@@ -5,7 +5,7 @@
         <script>
             let correctAnswer = "";
             async function apiCall() {
-                const myData = await fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
+                const myData = await fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
                 const myTemp = await myData.json()
                 console.log(myTemp)
                 document.getElementById("question").innerHTML = myTemp.results[0].question
