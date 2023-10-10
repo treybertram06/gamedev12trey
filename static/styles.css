@@ -240,3 +240,8 @@ background-color: pink;
 .noResize {
     resize: none;
 }
+
+.map {
+    width:100%; 
+    height:400px;
+}
