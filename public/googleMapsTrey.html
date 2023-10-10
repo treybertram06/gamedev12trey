@@ -4,14 +4,7 @@
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <title>Street Maps</title>
-        <script>
-            const map = L.map('map').setView([49.143, -122.31], 13);
- 
-             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-             }).addTo(map);
- 
-             const marker01 = L.marker([49.143, -122.33]).addTo(map).bindPopup('Marker 1: This is a sample location.');
-         </script>
+        
     </head>
     <body class="body01">
         <div class="navbar">
@@ -26,5 +19,13 @@
 
         <div id="map" style="width:100%; height:400px;"></div>
 
+        <script>
+            const map = L.map('map').setView([49.143, -122.31], 13);
+ 
+             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+             }).addTo(map);
+ 
+             const marker01 = L.marker([49.143, -122.33]).addTo(map).bindPopup('Marker 1: This is a sample location.');
+         </script>
     </body>
 </html>
