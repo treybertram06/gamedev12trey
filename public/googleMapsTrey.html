@@ -3,6 +3,8 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
         <title>Street Maps</title>
         
     </head>
@@ -36,6 +38,8 @@
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
+
+            L.Control.geocoder().addTo(map);
         </script>
     </body>
 </html>
