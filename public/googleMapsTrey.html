@@ -5,6 +5,7 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
         <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+        <script src="https://unpkg.com/leaflet-weather-plugin@1.0.1"></script>
         <title>Street Maps</title>
     </head>
     <body class="body01">
@@ -46,6 +47,35 @@
             }
 
             map.on('click', onMapClick);
+
+            var weatherLayer = L.OWM.current({intervall: 15, lang: 'en', minZoom: 3}).addTo(map);
+
+            var WeatherControl = L.Control.extend({
+                options: {
+                    position: 'topleft'
+                },
+            
+                onAdd: function (map) {
+                    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+                
+                    container.style.backgroundColor = 'white';
+                    container.style.backgroundSize = "30px 30px";
+                    container.style.width = '30px';
+                    container.style.height = '30px';
+                
+                    container.onclick = function(){
+                        if (map.hasLayer(weatherLayer)) {
+                            map.removeLayer(weatherLayer);
+                        } else {
+                            weatherLayer.addTo(map);
+                        }
+                    }
+                
+                    return container;
+                },
+            });
+
+            map.addControl(new WeatherControl());
         </script>
     </body>
 </html>
