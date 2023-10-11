@@ -51,32 +51,32 @@
             var weatherLayer = L.OWM.current({intervall: 15, lang: 'en', minZoom: 3}).addTo(map);
 
             var WeatherControl = L.Control.extend({
-                options: {
-                    position: 'topleft'
-                },
+            options: {
+                position: 'topleft'
+            },
+        
+            onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-control-custom');
             
-                onAdd: function (map) {
-                    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-                
-                    container.style.backgroundColor = 'white';
-                    container.style.backgroundSize = "30px 30px";
-                    container.style.width = '30px';
-                    container.style.height = '30px';
-                
-                    container.innerHTML = 'Weather Layer';
-                    container.onclick = function(){
-                        if (map.hasLayer(weatherLayer)) {
-                            map.removeLayer(weatherLayer);
-                        } else {
-                            weatherLayer.addTo(map);
-                        }
+                container.style.backgroundColor = 'white';
+                container.style.width = '100px'; // increased width
+                container.style.height = '30px';
+            
+                container.innerHTML = '<p style="margin:0;">Weather Layer</p>'; // added paragraph with zero margin
+                container.onclick = function(){
+                    if (map.hasLayer(weatherLayer)) {
+                        map.removeLayer(weatherLayer);
+                    } else {
+                        weatherLayer.addTo(map);
                     }
-                
-                    return container;
-                },
-            });
+                }
+            
+                return container;
+            },
+        });     
 
-            map.addControl(new WeatherControl());
+        map.addControl(new WeatherControl());
+
         </script>
     </body>
 </html>
