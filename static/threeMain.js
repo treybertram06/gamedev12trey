@@ -1,6 +1,8 @@
 import * as THREE from 'https://threejs.org/build/three.module.js';
+import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
 
-const loader = new THREE.GLTFLoader();
+
+const loader = new GLTFLoader();
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
