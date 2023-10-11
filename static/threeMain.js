@@ -1,1 +1,1 @@
-import * as THREE from './build/three.js';
+import * as THREE from './build/three';
