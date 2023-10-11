@@ -13,7 +13,7 @@ const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
-loader.load( 'path/to/model.glb', function ( gltf ) {
+loader.load( 'https://treybertram06.github.io/gamedev12trey/static/models/car.gltf', function ( gltf ) {
 
 	scene.add( gltf.scene );
 
