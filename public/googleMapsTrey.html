@@ -63,6 +63,7 @@
                     container.style.width = '30px';
                     container.style.height = '30px';
                 
+                    container.innerHTML = 'Weather Layer';
                     container.onclick = function(){
                         if (map.hasLayer(weatherLayer)) {
                             map.removeLayer(weatherLayer);
