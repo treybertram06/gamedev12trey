@@ -59,10 +59,10 @@
                 var container = L.DomUtil.create('div', 'leaflet-control-custom');
             
                 container.style.backgroundColor = 'white';
-                container.style.width = '100px'; // increased width
+                container.style.width = '100px'; 
                 container.style.height = '30px';
             
-                container.innerHTML = '<p style="margin:0;">Weather Layer</p>'; // added paragraph with zero margin
+                container.innerHTML = '<p style="margin:0;">Weather Layer</p>'; 
                 container.onclick = function(){
                     if (map.hasLayer(weatherLayer)) {
                         map.removeLayer(weatherLayer);
