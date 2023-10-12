@@ -1,7 +1,3 @@
-import * as THREE from 'https://cdn.skypack.dev/three';
-import { GLTFLoader } from 'https://cdn.skypack.dev/three/examples/jsm/loaders/GLTFLoader';
-
-
 
 const loader = new GLTFLoader();
 const scene = new THREE.Scene();
