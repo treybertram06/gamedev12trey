@@ -1,8 +1,3 @@
-import * as THREE from './js/three.module.js';
-import Stats from './js/stats.module.js';
-import { PointerLockControls } from '/js/PointerLockControls.js';
-import { GLTFLoader } from '/js/GLTFLoader.js';
-
 let camera, scene, renderer, controls;
 const godModels = [];
 const rotationX = Math.PI / 2;
