@@ -17,7 +17,7 @@
         <input type="text" id="myText01" placeholder="Fred" value="Fred"><br>
         <input type="number" id="myText02" placeholder="16" value="16"><br>
         <button class="buttonStyle01" onclick="checkAge()">Check Age</button><br>
-        <button class="buttonStyle01" onclick="clear()">Clear</button><br><br>
+        <button class="buttonStyle01" onclick="clearFields()">Clear</button><br><br>
 
         <div id="myDiv01">...</div>
 
@@ -48,7 +48,7 @@
                 document.getElementById('myDiv01').innerText = output
             }
 
-            function clear() {
+            function clearFields() {
                 document.getElementById('myText01').value = ""
                 document.getElementById('myText02').value = ""
             }
