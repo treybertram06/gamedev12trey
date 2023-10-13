@@ -27,7 +27,9 @@
                 let age = document.getElementById('myText02').value
                 let name = document.getElementById('myText01').value 
 
-                if (age == "" || name == "") {
+                if (name == "Jeremy" || name == "Ellis") {
+                    output = "Please give me 9 of Jons marks."
+                } else if (age == "" || name == "") {
                     output = "Please fill in all fields."
                 } else if (age <= 0) {
                     output = name + " does not exist."
