@@ -82,7 +82,7 @@ function init() {
   light.position.set(0.5, 1, 0.75);
   scene.add(light);
 
-  controls = new PointerLockControls(camera, document.body);
+  controls = new THREE.PointerLockControls(camera, document.body);
   scene.add(controls.getObject());
 
   document.addEventListener('click', function () {
