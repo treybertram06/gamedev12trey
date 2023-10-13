@@ -6,7 +6,7 @@ const rotationZ = Math.PI / 1; // 90 degrees
 
 let frameRate = 60;
 let prevTime = performance.now();
-const loader = new GLTFLoader();
+const loader = new THREE.GLTFLoader();
 const stats = new Stats();
 
 document.body.appendChild(stats.dom);
