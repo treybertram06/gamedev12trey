@@ -26,7 +26,9 @@
                 let age = document.getElementById('myText02').value
                 let name = document.getElementById('myText01').value 
 
-                if (age <= 0) {
+                if (age == "" || name == "") {
+                    output = "Please fill in all fields."
+                } else if (age <= 0) {
                     output = name + " does not exist."
                 }else if (age <= 3) {
                     output = name + " is a baby."
