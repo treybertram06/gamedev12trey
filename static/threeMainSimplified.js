@@ -55,8 +55,6 @@ function init() {
 
 function animate() {
   requestAnimationFrame(animate);
-  if (controls.isLocked === true) {
-  }
   renderer.render(scene, camera);
 
 }
