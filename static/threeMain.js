@@ -9,9 +9,9 @@ let camera, scene, renderer, controls;
 const loader = new THREE.GLTFLoader();
 //const stats = new Stats();
 
-document.body.appendChild(stats.dom);
+//document.body.appendChild(stats.dom);
 const pathCarModel = 'https://treybertram06.github.io/gamedev12trey/static/models/car.gltf';
-const pathGodModel = 'https://treybertram06.github.io/gamedev12trey/static/models/god.gltf'
+//const pathGodModel = 'https://treybertram06.github.io/gamedev12trey/static/models/god.gltf'
 
 function loadModel(x, y, z, scale, modelPath) {
   loader.load(
