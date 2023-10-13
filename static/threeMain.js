@@ -1,13 +1,13 @@
 let camera, scene, renderer, controls;
-const godModels = [];
-const rotationX = Math.PI / 2;
-const rotationY = Math.PI / 2;
-const rotationZ = Math.PI / 1; // 90 degrees
+//const godModels = [];
+//const rotationX = Math.PI / 2;
+//const rotationY = Math.PI / 2;
+//const rotationZ = Math.PI / 1; // 90 degrees
 
-let frameRate = 60;
-let prevTime = performance.now();
+//let frameRate = 60;
+//let prevTime = performance.now();
 const loader = new THREE.GLTFLoader();
-const stats = new Stats();
+//const stats = new Stats();
 
 document.body.appendChild(stats.dom);
 const pathCarModel = 'https://treybertram06.github.io/gamedev12trey/static/models/car.gltf';
@@ -27,7 +27,7 @@ function loadModel(x, y, z, scale, modelPath) {
     }
   );
 }
-
+```
 function loadModelCustomColor(x, y, z, scale, modelPath) {
   loader.load(
     modelPath,
@@ -57,7 +57,7 @@ function loadGodModels(radius, count) {
     loadModelCustomColor(x, 5, z, 5, pathGodModel);
   }
 }
-
+```
 init();
 animate();
 
@@ -76,7 +76,7 @@ function init() {
   scene.add(ground);
 
   loadModel(5, 0, 5, 1, pathCarModel);
-  loadGodModels(10, 8); // Load 8 God models in a circle with radius 10
+ // loadGodModels(10, 8); // Load 8 God models in a circle with radius 10
 
   const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
   light.position.set(0.5, 1, 0.75);
@@ -98,13 +98,13 @@ function init() {
 function animate() {
   requestAnimationFrame(animate);
 
-  const time = performance.now();
+ // const time = performance.now();
 
   if (controls.isLocked === true) {
-    const delta = (time - prevTime) / 1000;
-    frameRate = 1 / delta;
+   // const delta = (time - prevTime) / 1000;
+  //  frameRate = 1 / delta;
   }
-
+```
    // Make each God model face the camera
   godModels.forEach((model) => {
     model.lookAt(camera.position);
@@ -112,9 +112,9 @@ function animate() {
     model.rotation.y += rotationY;
     model.rotation.z += rotationZ;
   });
-
-  prevTime = time;
+```
+ // prevTime = time;
   renderer.render(scene, camera);
-  stats.update();
+ // stats.update();
 
 }
