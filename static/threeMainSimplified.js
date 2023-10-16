@@ -1,6 +1,8 @@
 let camera, scene, renderer, controls;
 const loader = new THREE.GLTFLoader();
+const FBXLoader = new THREE.FBXLoader();
 const pathCarModel = 'https://treybertram06.github.io/gamedev12trey/static/models/car.gltf';
+const pathRunningModel = 'https://treybertram06.github.io/gamedev12trey/static/models/Jog In Circle.fbx';
 
 function loadModel(x, y, z, scale, modelPath) {
   loader.load(
@@ -9,6 +11,21 @@ function loadModel(x, y, z, scale, modelPath) {
       gltf.scene.scale.set(scale, scale, scale); // Scale the model
       gltf.scene.position.set(x, y, z); // Set position of the model
       scene.add(gltf.scene);
+    },
+    undefined,
+    function (error) {
+      console.error(error);
+    }
+  );
+}
+
+function loadFBXModel(x, y, z, scale, modelPath) {
+  FBXLoader.load(
+    modelPath,
+    function (object) {
+      object.scale.set(scale, scale, scale); // Scale the model
+      object.position.set(x, y, z); // Set position of the model
+      scene.add(object);
     },
     undefined,
     function (error) {
@@ -56,5 +73,4 @@ function init() {
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
-
 }
