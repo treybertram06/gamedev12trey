@@ -52,7 +52,7 @@ function init() {
   scene.add(ground);
 
   loadModel(5, 0, 5, 1, pathCarModel);
-  loadFBXModel(5, 0, 7, 1, pathRunningModel);
+  loadFBXModel(5, 0, 7, 0.1, pathRunningModel);
 
   const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
   light.position.set(0.5, 1, 0.75);
