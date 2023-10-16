@@ -1,6 +1,7 @@
-let camera, scene, renderer, controls;
+let camera, scene, renderer, controls, mixer;
 const loader = new THREE.GLTFLoader();
 const FBXLoader = new THREE.FBXLoader();
+const clock = new THREE.Clock();
 const pathCarModel = 'https://treybertram06.github.io/gamedev12trey/static/models/car.gltf';
 const pathRunningModel = 'https://treybertram06.github.io/gamedev12trey/static/models/Jog In Circle.fbx';
 
@@ -26,6 +27,14 @@ function loadFBXModel(x, y, z, scale, modelPath) {
       object.scale.set(scale, scale, scale); // Scale the model
       object.position.set(x, y, z); // Set position of the model
       scene.add(object);
+
+      // Create an AnimationMixer and set it to the object
+      mixer = new THREE.AnimationMixer(object);
+
+      // Get the first animation clip and play it
+      const action = mixer.clipAction(object.animations[0]);
+      action.play();
+
     },
     undefined,
     function (error) {
@@ -73,5 +82,10 @@ function init() {
 
 function animate() {
   requestAnimationFrame(animate);
+
+  if (mixer) {
+    mixer.update(clock.getDelta());
+  }
+
   renderer.render(scene, camera);
 }
