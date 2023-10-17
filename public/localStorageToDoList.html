@@ -17,8 +17,9 @@
                 border: 1px solid #ddd;
                 margin-bottom: 10px;
                 position: relative;
-                background-color: #999999;
+                background-color: #c4c4c4;
                 cursor: pointer;
+                border-radius: 10px;
             }
             
             #todoList li:hover {
@@ -57,12 +58,12 @@
         <h1 class="pageTitle">Local Storage ToDo List Trey</h1>
 
         <br><hr>
-
-        <input id="todoInput" type="text" placeholder="New task..." />
-        <button onclick="newTask()">Add</button>
-        <button onclick="clearAllTasks()">Clear All</button>
-        <ul id="todoList"></ul>
-
+        <form align="center">
+            <input id="todoInput" type="text" placeholder="New task..." />
+            <button onclick="newTask()">Add</button>
+            <button onclick="clearAllTasks()">Clear All</button>
+            <ul id="todoList"></ul>
+        </form>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 loadTasks();
