@@ -19,6 +19,7 @@
 
         <input id="todoInput" type="text" placeholder="New task..." />
         <button onclick="newTask()">Add</button>
+        <button onclick="clearAllTasks()">Clear All</button>
         <ul id="todoList"></ul>
 
         <script>
@@ -29,7 +30,7 @@
             function newTask() {
                 let inputValue = document.getElementById("todoInput").value;
                 if (inputValue === '') {
-                    alert("You must write something!");
+                    alert("Cannot add an empty task.");
                 } else {
                     let li = document.createElement("li");
                     li.textContent = inputValue;
@@ -48,6 +49,18 @@
                 }
                 tasks.push(task);
                 localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+
+            function deleteTask(task) {
+                let tasks = JSON.parse(localStorage.getItem('tasks'));
+                tasks.splice(tasks.indexOf(task), 1);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+            
+            function clearAllTasks() {
+                localStorage.clear();
+                let ul = document.getElementById("todoList");
+                while(ul.firstChild) ul.removeChild(ul.firstChild);
             }
 
             function loadTasks() {
