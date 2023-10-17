@@ -30,7 +30,7 @@
             function newTask() {
                 let inputValue = document.getElementById("todoInput").value;
                 if (inputValue === '') {
-                    alert("You must write something!");
+                    alert("Cannot add empty task.");
                 } else {
                     let li = document.createElement("li");
                     let btn = document.createElement("button");
@@ -46,7 +46,7 @@
                 }
                 document.getElementById("todoInput").value = "";
             }
-            
+
             function saveTask(task) {
                 let tasks;
                 if(localStorage.getItem('tasks') === null) {
