@@ -30,16 +30,23 @@
             function newTask() {
                 let inputValue = document.getElementById("todoInput").value;
                 if (inputValue === '') {
-                    alert("Cannot add an empty task.");
+                    alert("You must write something!");
                 } else {
                     let li = document.createElement("li");
+                    let btn = document.createElement("button");
+                    btn.textContent = "Delete";
+                    btn.onclick = function() {
+                        this.parentElement.remove();
+                        deleteTask(this.parentElement.textContent);
+                    };
                     li.textContent = inputValue;
+                    li.appendChild(btn);
                     document.getElementById("todoList").appendChild(li);
                     saveTask(inputValue);
                 }
                 document.getElementById("todoInput").value = "";
             }
-
+            
             function saveTask(task) {
                 let tasks;
                 if(localStorage.getItem('tasks') === null) {
@@ -56,7 +63,7 @@
                 tasks.splice(tasks.indexOf(task), 1);
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
-            
+
             function clearAllTasks() {
                 localStorage.clear();
                 let ul = document.getElementById("todoList");
