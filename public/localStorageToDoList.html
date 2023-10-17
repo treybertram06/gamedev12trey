@@ -84,8 +84,9 @@
                         this.parentElement.remove();
                         deleteTask(this.parentElement.textContent);
                     };
-                    li.textContent = inputValue;
+                    let textNode = document.createTextNode(inputValue);
                     li.appendChild(dot);
+                    li.appendChild(textNode);
                     li.appendChild(btn);
                     li.addEventListener('click', function() {
                         this.classList.toggle('completed');
