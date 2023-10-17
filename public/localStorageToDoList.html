@@ -16,5 +16,53 @@
         <h5>Version 0.0.1</h5>
           <h1 class="pageTitle">Local Storage ToDo List Trey</h1>
           <br><hr>
+
+        <input id="todoInput" type="text" placeholder="New task..." />
+        <button onclick="newTask()">Add</button>
+        <ul id="todoList"></ul>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                            loadTasks();
+            });
+
+            function newTask() {
+                let inputValue = document.getElementById("todoInput").value;
+                if (inputValue === '') {
+                    alert("You must write something!");
+                } else {
+                    let li = document.createElement("li");
+                    li.textContent = inputValue;
+                    document.getElementById("todoList").appendChild(li);
+                    saveTask(inputValue);
+                }
+                document.getElementById("todoInput").value = "";
+            }
+
+            function saveTask(task) {
+                let tasks;
+                if(localStorage.getItem('tasks') === null) {
+                    tasks = [];
+                } else {
+                    tasks = JSON.parse(localStorage.getItem('tasks'));
+                }
+                tasks.push(task);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+
+            function loadTasks() {
+                let tasks;
+                if(localStorage.getItem('tasks') === null) {
+                    tasks = [];
+                } else {
+                    tasks = JSON.parse(localStorage.getItem('tasks'));
+                }
+                tasks.forEach(function(task){
+                    let li = document.createElement("li");
+                    li.textContent = task;
+                    document.getElementById("todoList").appendChild(li);
+                });
+            }
+        </script>
     </body>
 </html>
