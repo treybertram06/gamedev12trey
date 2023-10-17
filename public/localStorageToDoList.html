@@ -3,18 +3,42 @@
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <title>Local Storage</title>
         <style>
-            .dot {
-                height: 15px;
-                width: 15px;
-                background-color: #bbb;
-                border-radius: 50%;
-                display: inline-block;
-                margin-right: 10px;
-            }
-
-            .completed .dot {
-                background-color: #4CAF50;
-            }
+        #todoList {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #todoList li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            position: relative;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        
+        #todoList li:hover {
+            background-color: #ddd;
+        }
+        
+        #todoList li button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        
+        .dot {
+            height: 15px;
+            width: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .completed .dot {
+            background-color: #4CAF50;
+        }
         </style>
     </head>
     <body class="body01">
