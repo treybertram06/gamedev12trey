@@ -129,7 +129,21 @@
                 }
                 tasks.forEach(function(task){
                     let li = document.createElement("li");
-                    li.textContent = task;
+                    let btn = document.createElement("button");
+                    let dot = document.createElement("span");
+                    dot.className = "dot";
+                    btn.textContent = "Delete";
+                    btn.onclick = function() {
+                        this.parentElement.remove();
+                        deleteTask(this.parentElement.textContent);
+                    };
+                    let textNode = document.createTextNode(task);
+                    li.appendChild(dot);
+                    li.appendChild(textNode);
+                    li.appendChild(btn);
+                    li.addEventListener('click', function() {
+                        this.classList.toggle('completed');
+                    });
                     document.getElementById("todoList").appendChild(li);
                 });
             }
