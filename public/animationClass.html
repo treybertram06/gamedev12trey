@@ -12,8 +12,34 @@
         </div>
       
         <h5>Version 0.0.1</h5>
-          <h1 class="pageTitle">Animation With Classes</h1>
-          <br><hr>
+        <h1 class="pageTitle">Animation With Classes</h1>
+        <br><hr>
 
+        <img id="myImage" src="your_image.jpg" style="position:absolute;">
+        
+        <script>
+            class ImageMover {
+                constructor(imageElement) {
+                    this.imageElement = imageElement;
+                }
+    
+                moveImage() {
+                    let x = Math.floor(Math.random() * window.innerWidth);
+                    let y = Math.floor(Math.random() * window.innerHeight);
+    
+                    this.imageElement.style.left = x + 'px';
+                    this.imageElement.style.top = y + 'px';
+                }
+            }
+    
+            window.onload = function() {
+                let imageElement = document.getElementById('myImage');
+                let imageMover = new ImageMover(imageElement);
+    
+                setInterval(function() {
+                    imageMover.moveImage();
+                }, 1000);
+            }
+        </script>
     </body>
 </html>
