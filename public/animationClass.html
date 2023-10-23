@@ -6,17 +6,17 @@
             .myImage {
                 max-width: 200px; /* adjust as needed */
                 max-height: 200px; /* adjust as needed */
+                border: 5px solid hotpink; /* add border */
+                border-radius: 50%; /* make image round */
             }
         </style>
     </head>
-
     <body class="body01">
-
         <div class="navbar">
             <a href="./index.html">Index</a>
             <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
         </div>
-      
+
         <h5>Version 0.0.1</h5>
         <h1 class="pageTitle">Animation With Classes</h1>
         <br><hr>
@@ -25,7 +25,6 @@
         <img class="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_6494.jpeg" style="position:absolute;">
         <img class="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_5293.jpeg" style="position:absolute;">
 
-        
         <script>
             class ImageMover {
                 constructor(imageElement) {
@@ -33,30 +32,30 @@
                     this.targetX = Math.floor(Math.random() * window.innerWidth);
                     this.targetY = Math.floor(Math.random() * window.innerHeight);
                 }
-    
+
                 moveImage() {
                     let currentX = parseInt(this.imageElement.style.left) || 0;
                     let currentY = parseInt(this.imageElement.style.top) || 0;
-    
+
                     if (Math.abs(currentX - this.targetX) < 1 && Math.abs(currentY - this.targetY) < 1) {
                         this.targetX = Math.floor(Math.random() * window.innerWidth);
                         this.targetY = Math.floor(Math.random() * window.innerHeight);
                     }
-    
+
                     let newX = currentX + (this.targetX - currentX) * 0.01;
                     let newY = currentY + (this.targetY - currentY) * 0.01;
-    
+
                     this.imageElement.style.left = newX + 'px';
                     this.imageElement.style.top = newY + 'px';
-    
+
                     requestAnimationFrame(this.moveImage.bind(this));
                 }
             }
-    
+
             window.onload = function() {
                 let imageElements = document.getElementsByClassName('myImage');
                 let imageMovers = Array.from(imageElements).map(img => new ImageMover(img));
-    
+
                 imageMovers.forEach(mover => mover.moveImage());
             }
         </script>
