@@ -32,30 +32,30 @@
                     this.targetX = Math.floor(Math.random() * window.innerWidth);
                     this.targetY = Math.floor(Math.random() * window.innerHeight);
                 }
-
+        
                 moveImage() {
                     let currentX = parseInt(this.imageElement.style.left) || 0;
                     let currentY = parseInt(this.imageElement.style.top) || 0;
-
-                    if (Math.abs(currentX - this.targetX) < 1 && Math.abs(currentY - this.targetY) < 1) {
+        
+                    if (Math.abs(currentX - this.targetX) < 10 && Math.abs(currentY - this.targetY) < 10) {
                         this.targetX = Math.floor(Math.random() * window.innerWidth);
                         this.targetY = Math.floor(Math.random() * window.innerHeight);
                     }
-
+        
                     let newX = currentX + (this.targetX - currentX) * 0.01;
                     let newY = currentY + (this.targetY - currentY) * 0.01;
-
+        
                     this.imageElement.style.left = newX + 'px';
                     this.imageElement.style.top = newY + 'px';
-
+        
                     requestAnimationFrame(this.moveImage.bind(this));
                 }
             }
-
+        
             window.onload = function() {
                 let imageElements = document.getElementsByClassName('myImage');
                 let imageMovers = Array.from(imageElements).map(img => new ImageMover(img));
-
+        
                 imageMovers.forEach(mover => mover.moveImage());
             }
         </script>
