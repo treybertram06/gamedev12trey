@@ -2,6 +2,12 @@
     <head>
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <title>Animation With Classes</title>
+        <style>
+            .myImage {
+                max-width: 200px; /* adjust as needed */
+                max-height: 200px; /* adjust as needed */
+            }
+        </style>
     </head>
 
     <body class="body01">
@@ -15,9 +21,9 @@
         <h1 class="pageTitle">Animation With Classes</h1>
         <br><hr>
 
-        <img id="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_6588.dng" style="position:absolute;">
-        <img id="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_6494.jpeg" style="position:absolute;">
-        <img id="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_5293.jpeg" style="position:absolute;">
+        <img class="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_6588.dng" style="position:absolute;">
+        <img class="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_6494.jpeg" style="position:absolute;">
+        <img class="myImage" src="https://treybertram06.github.io/gamedev12trey/static/images/IMG_5293.jpeg" style="position:absolute;">
 
         
         <script>
@@ -36,11 +42,11 @@
             }
     
             window.onload = function() {
-                let imageElement = document.getElementById('myImage');
-                let imageMover = new ImageMover(imageElement);
+                let imageElements = document.getElementsByClassName('myImage');
+                let imageMovers = Array.from(imageElements).map(img => new ImageMover(img));
     
                 setInterval(function() {
-                    imageMover.moveImage();
+                    imageMovers.forEach(mover => mover.moveImage());
                 }, 1000);
             }
         </script>
