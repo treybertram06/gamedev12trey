@@ -41,7 +41,9 @@
                     if (this.targetElement) {
                         this.targetX = parseInt(this.targetElement.style.left) || 0;
                         this.targetY = parseInt(this.targetElement.style.top) || 0;
-                    } else if (Math.abs(currentX - this.targetX) < 10 && Math.abs(currentY - this.targetY) < 10) {
+                    } 
+        
+                    if (Math.abs(currentX - this.targetX) < 10 && Math.abs(currentY - this.targetY) < 10) {
                         this.targetX = Math.floor(Math.random() * window.innerWidth);
                         this.targetY = Math.floor(Math.random() * window.innerHeight);
                     }
