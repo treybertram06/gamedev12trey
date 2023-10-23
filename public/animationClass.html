@@ -27,8 +27,9 @@
 
         <script>
             class ImageMover {
-                constructor(imageElement) {
+                constructor(imageElement, targetElement = null) {
                     this.imageElement = imageElement;
+                    this.targetElement = targetElement;
                     this.targetX = Math.floor(Math.random() * window.innerWidth);
                     this.targetY = Math.floor(Math.random() * window.innerHeight);
                 }
@@ -37,7 +38,10 @@
                     let currentX = parseInt(this.imageElement.style.left) || 0;
                     let currentY = parseInt(this.imageElement.style.top) || 0;
         
-                    if (Math.abs(currentX - this.targetX) < 10 && Math.abs(currentY - this.targetY) < 10) {
+                    if (this.targetElement) {
+                        this.targetX = parseInt(this.targetElement.style.left) || 0;
+                        this.targetY = parseInt(this.targetElement.style.top) || 0;
+                    } else if (Math.abs(currentX - this.targetX) < 10 && Math.abs(currentY - this.targetY) < 10) {
                         this.targetX = Math.floor(Math.random() * window.innerWidth);
                         this.targetY = Math.floor(Math.random() * window.innerHeight);
                     }
@@ -54,7 +58,15 @@
         
             window.onload = function() {
                 let imageElements = document.getElementsByClassName('myImage');
-                let imageMovers = Array.from(imageElements).map(img => new ImageMover(img));
+                let imageMovers = Array.from(imageElements).map((img, index) => {
+                    if (index === 0) {
+                        return new ImageMover(img, imageElements[1]);
+                    } else if (index === 1) {
+                        return new ImageMover(img, imageElements[2]);
+                    } else {
+                        return new ImageMover(img);
+                    }
+                });
         
                 imageMovers.forEach(mover => mover.moveImage());
             }
