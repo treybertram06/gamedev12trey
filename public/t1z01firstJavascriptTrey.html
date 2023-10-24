@@ -37,7 +37,8 @@
             function startSlideshow() {
                 var img = document.getElementById("slideImage");
                 var randomParameter = new Date().getTime();
-                img.src = "https://source.unsplash.com/random/300x300?" + randomParameter;
+                console.log(randomParameter)
+                img.src = "https://source.unsplash.com/random/300x300" + randomParameter;
                 setTimeout(startSlideshow, 2000);
             }
         </script>
