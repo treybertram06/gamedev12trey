@@ -36,14 +36,10 @@
         <button onclick="startSlideshow()">Start Slideshow</button>
 
         <script>
-            var slideIndex = 0;
-            var slides = ["https://source.unsplash.com/random/300x300", "https://source.unsplash.com/random/300x301", "https://source.unsplash.com/random/300x302"];
         
             function startSlideshow() {
                 var img = document.getElementById("slideImage");
-                img.src = slides[slideIndex];
-                slideIndex++;
-                if (slideIndex >= slides.length) { slideIndex = 0; }
+                img.src = "https://source.unsplash.com/random/300x300"
                 setTimeout(startSlideshow, 2000); // Change image every 2 seconds
             }
         </script>
