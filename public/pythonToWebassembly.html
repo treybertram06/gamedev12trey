@@ -4,25 +4,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.0/brython_stdlib.min.js"></script>
   </head>
   <body onload="brython()">
-
     <textarea id="code" rows="10" cols="50">
     # Write your Python code here
     </textarea>
-    
-    <button onclick="run()">Run</button>
-    
+
+    <button id="run-button">Run</button>
+
     <script type="text/python">
-    from browser import document, alert, exec
-    
-    def run():
+    from browser import document, alert
+
+    def run(ev):
         code = document["code"].value
         try:
             exec(code)
         except Exception as e:
             alert(str(e))
-    
-    document["run"].bind("click", run)
+
+    document["run-button"].bind("click", run)
     </script>
-    
-    </body>
+  </body>
 </html>
