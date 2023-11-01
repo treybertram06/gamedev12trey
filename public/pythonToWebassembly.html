@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pyodide Test</title>
+    <script src="https://pyodide-cdn2.iodide.io/v0.15.0/full/pyodide.js"></script>
+</head>
+<body>
+    <h1>Pyodide Test</h1>
+    <p>Open your browser's console to see the output.</p>
+    <script>
+        window.languagePluginUrl = 'https://pyodide-cdn2.iodide.io/v0.15.0/full/';
+        languagePluginLoader.then(() => {
+            pyodide.loadPackage('numpy').then(() => {
+                let result = pyodide.runPython(`
+                    import numpy as np
+                    x = np.array([1, 2, 3, 4, 5])
+                    str(x)
+                `);
+                console.log(result);
+            });
+        });
+    </script>
+</body>
+</html>
