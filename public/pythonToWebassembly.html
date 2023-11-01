@@ -5,20 +5,22 @@
     <script src="https://cdn.jsdelivr.net/npm/pyodide@0.24.1/pyodide.min.js"></script>
 </head>
 <body>
-    <h1>Pyodide Test</h1>
-    <p>Open your browser's console to see the output.</p>
+    <h1>Pyodide Interactive</h1>
+    <textarea id="code" style="width: 100%; height: 100px;">print('Hello, World!')</textarea>
+    <button onclick="runCode()">Run Code</button>
+    <div id="output"></div>
+
     <script>
-        window.languagePluginUrl = 'https://pyodide-cdn2.iodide.io/v0.15.0/full/';
+        window.languagePluginUrl = 'https://cdn.jsdelivr.net/npm/pyodide@0.24.1/pyodide.min.js';
         languagePluginLoader.then(() => {
-            pyodide.loadPackage('numpy').then(() => {
-                let result = pyodide.runPython(`
-                    import numpy as np
-                    x = np.array([1, 2, 3, 4, 5])
-                    str(x)
-                `);
-                console.log(result);
-            });
+            pyodide.loadPackage('numpy');
         });
+
+        function runCode() {
+            let code = document.getElementById('code').value;
+            let outputDiv = document.getElementById('output');
+            outputDiv.textContent = pyodide.runPython(code);
+        }
     </script>
 </body>
 </html>
