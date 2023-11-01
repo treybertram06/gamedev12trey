@@ -6,11 +6,14 @@
 <body>
     <h1>Pyodide Interactive</h1>
     <textarea id="code" style="width: 100%; height: 100px;">import numpy as np\nnp.array([1, 2, 3, 4, 5])</textarea>
-    <button onclick="runCode()">Run Code</button>
+    <button onclick="runCode()" disabled>Run Code</button>
     <div id="output"></div>
 
     <script>
-        loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/' }).then(() => {
+        let pyodide = null;
+
+        loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/' }).then((loadedPyodide) => {
+            pyodide = loadedPyodide;
             pyodide.loadPackage('numpy').then(() => {
                 document.querySelector('button').disabled = false;
             });
