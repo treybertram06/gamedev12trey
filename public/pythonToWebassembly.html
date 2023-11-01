@@ -6,13 +6,14 @@
   <body onload="brython()">
     <textarea id="code" rows="10" cols="50">
       def math(): 
-        inputOne = input("First Number")
-        inputTwo = input("Second Number")
+        inputOne = int(input("First Number"))
+        inputTwo = int(input("Second Number"))
         sum = inputOne + inputTwo
         print(sum)    
       </textarea>
-
-    <button id="run-button">Run</button>
+      <br>
+    <button id="run-button">Run</button><br>
+    <div id="output"></div>
 
     <script type="text/python">
     from browser import document, alert
@@ -25,6 +26,7 @@
             alert(str(e))
 
     document["run-button"].bind("click", run)
+      document["output"] <= document["code"]
     </script>
   </body>
 </html>
