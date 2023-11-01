@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Pyodide Test</title>
@@ -6,14 +5,15 @@
 </head>
 <body>
     <h1>Pyodide Interactive</h1>
-    <textarea id="code" style="width: 100%; height: 100px;">print('Hello, World!')</textarea>
+    <textarea id="code" style="width: 100%; height: 100px;">import numpy as np\nnp.array([1, 2, 3, 4, 5])</textarea>
     <button onclick="runCode()">Run Code</button>
     <div id="output"></div>
 
     <script>
-        window.languagePluginUrl = 'https://cdn.jsdelivr.net/npm/pyodide@0.24.1/pyodide.min.js';
-        languagePluginLoader.then(() => {
-            pyodide.loadPackage('numpy');
+        loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/' }).then(() => {
+            pyodide.loadPackage('numpy').then(() => {
+                document.querySelector('button').disabled = false;
+            });
         });
 
         function runCode() {
