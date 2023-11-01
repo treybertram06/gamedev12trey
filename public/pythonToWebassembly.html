@@ -1,29 +1,246 @@
-<html>
-<head>
-    <title>Pyodide Test</title>
-    <script src="https://cdn.jsdelivr.net/npm/pyodide@0.24.1/pyodide.min.js"></script>
-</head>
-<body>
-    <h1>Pyodide Interactive</h1>
-    <textarea id="code" style="width: 100%; height: 100px;">import numpy as np\nnp.array([1, 2, 3, 4, 5])</textarea>
-    <button onclick="runCode()" disabled>Run Code</button>
-    <div id="output"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/python/python.js"></script>
 
-    <script>
-        let pyodide = null;
+<style>
+    #loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #loaderText {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+body {
+    background-color: rgb(103, 96, 96);
+    color: white;
+}
 
-        loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/' }).then((loadedPyodide) => {
-            pyodide = loadedPyodide;
-            pyodide.loadPackage('numpy').then(() => {
-                document.querySelector('button').disabled = false;
-            });
-        });
+#main {
+    text-align: center;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-        function runCode() {
-            let code = document.getElementById('code').value;
-            let outputDiv = document.getElementById('output');
-            outputDiv.textContent = pyodide.runPython(code);
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+
+ 
+
+  #outputDiv {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+</style>
+<div id="loader">
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
+<div id="loaderText">
+    <h1 style="text-align: center;">Loading Python...</h1>
+
+</div>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+<div id="main" style="display: none;">
+    <h1 align="center">Pyodide: Python with JavaScript in the browser</h1>
+
+<p>Enter your own Python code OR change the numbers in sum([]). Click Run. Includes err handling.</p>
+
+<textarea id="pythonCode" rows="6" cols="40" class="language-python" style="text-align: left;">
+def run_python_code():
+    a = sum([1, 2, 3, 4, 9])
+    return a
+
+result = run_python_code()
+result
+</textarea>
+
+<button onclick="runPythonCode()" class="btn btn-primary">Run Custom Code</button>
+<button onclick="runPythonCodeVariable()" class="btn btn-primary">Run Using Variables (Preset Code, Check Console)</button>
+
+
+<div id="outputDiv">Output will appear here.</div>
+</div>
+
+
+<script>
+    
+  const pythonCodeTextarea = document.getElementById("pythonCode");
+  const editor = CodeMirror.fromTextArea(pythonCodeTextarea, {
+    mode: "python",
+    lineNumbers: true, // Optional: show line numbers
+    theme: "default", // Optional: choose a theme
+  });
+  let pyodide;
+  const outputDiv = document.getElementById("outputDiv");
+
+  async function initializePyodide() {
+    pyodide = await loadPyodide();
+    outputDiv.innerHTML = "Ready to run Python code.";
+    document.getElementById("main").style.display = 'block';
+    document.getElementById("loader").style.display = 'none'
+    document.getElementById("loaderText").style.display = 'none'
+
+  }
+
+  function runPythonCode() {
+    const myPython = pythonCodeTextarea.value;
+    outputDiv.innerHTML = "Running Python code...";
+
+    if (pyodide) {
+      try {
+        const result = pyodide.runPython(myPython);
+        outputDiv.innerHTML = "Output:<br>" + result;
+        console.log("Success Code Run, Result: " + result)
+
+      } catch (err) {
+        console.error(err)
+        outputDiv.innerHTML = "Error:<br>" + err;
+      }
+    } else {
+      outputDiv.innerHTML = "Pyodide is not initialized yet. Please wait.";
+    }
+  }
+  function runPythonCodeVariable() {
+        const num1 = parseFloat(prompt("Enter the first number:"));
+        const num2 = parseFloat(prompt("Enter the second number:"));
+        const num3 = parseFloat(prompt("Enter the third number:"));
+        const num4 = parseFloat(prompt("Enter the fourth number:"));
+        const num5 = parseFloat(prompt("Enter the fifth number:"));
+
+        if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3) && !isNaN(num4) && !isNaN(num5)) {
+            const myPython = `def run_python_code():
+    a = sum([${num1}, ${num2}, ${num3}, ${num4}, ${num5}])
+    return a
+
+result = run_python_code()
+result`;
+            outputDiv.innerHTML = "Running Python code...";
+
+            if (pyodide) {
+                try {
+                    const result = pyodide.runPython(myPython);
+                    outputDiv.innerHTML = "Output:<br>" + result;
+                    console.log("Success Code Run, Result: " + result);
+
+                } catch (err) {
+                    console.error(err);
+                    outputDiv.innerHTML = "Error:<br>" + err;
+                }
+            } else {
+                outputDiv.innerHTML = "Pyodide is not initialized yet. Please wait.";
+            }
+        } else {
+            outputDiv.innerHTML = "Invalid input. Please enter valid numbers.";
         }
-    </script>
-</body>
-</html>
+    }
+  initializePyodide();
+</script>
