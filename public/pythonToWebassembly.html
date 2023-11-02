@@ -5,22 +5,26 @@
   </head>
   <body onload="brython()">
     <textarea id="code" rows="10" cols="50">
-class Stuff:
-  def math(): 
+class Math:
+  def add(): 
     inputOne = int(input("First Number"))
     inputTwo = int(input("Second Number"))
-
-    if isinstance((inputOne, inputTwo), int) != False:
-      sum = "you cant add letters bozo."
-    elif inputOne == inputTwo:
-      sum = "you really cant double a number in your head?"
-    elif inputOne <= 9 or inputTwo <= 9:
-      sum = "If you cant add a single digit number in your head then programming isn't for you."
-    else:
-      sum = inputOne + inputTwo
-
+    sum = inputOne + inputTwo
     print(sum)
-Stuff.math()
+  
+  def multiply():
+    inputOne = int(input("Enter the first number: "))
+    inputTwo = int(input("Enter the second number: "))
+    result = 0
+    for i in range(abs(inputTwo)):
+        result += inputOne
+    if inputTwo < 0:
+        result = -result
+    print(result)
+
+Math.add()
+Math.multiply()
+
       </textarea>
       <br>
     <button id="run-button">Run</button><br>
