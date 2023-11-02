@@ -31,17 +31,21 @@ Math.multiply()
     <div id="output"></div>
 
     <script type="text/python">
-    from browser import document, alert
-
-    def run(ev):
-        code = document["code"].value
-        try:
-            exec(code)
-        except Exception as e:
-            alert(str(e))
-
-    document["run-button"].bind("click", run)
-    document["output"].value = document["code"].value
-    </script>
+      from browser import document, alert, console
+  
+      def run(ev):
+          code = document["code"].value
+          try:
+              namespace = {}
+              exec(code, namespace)
+              document["output"].clear()
+              for key, value in namespace.items():
+                  if not key.startswith("__"):
+                      document["output"].text += f"{key}: {value}\n"
+          except Exception as e:
+              alert(str(e))
+  
+      document["run-button"].bind("click", run)
+      </script>
   </body>
 </html>
