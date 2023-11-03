@@ -32,20 +32,21 @@ Math.multiply()
 
     <script type="text/python">
       from browser import document, alert, console
-  
+
+      # Define a custom print function that writes to the div
+      def print_to_div(*args, **kwargs):
+        text = ' '.join(str(arg) for arg in args)
+        document["output"].text += text + '\n'
+
       def run(ev):
-          code = document["code"].value
-          try:
-              namespace = {}
-              exec(code, namespace)
-              document["output"].clear()
-              for key, value in namespace.items():
-                  if not key.startswith("__"):
-                      document["output"].text += f"{key}: {value}\n"
-          except Exception as e:
-              alert(str(e))
-  
+        code = document["code"].value
+        try:
+          namespace = {'print': print_to_div}
+          exec(code, namespace)
+        except Exception as e:
+          alert(str(e))
+
       document["run-button"].bind("click", run)
-      </script>
+    </script>
   </body>
 </html>
