@@ -26,10 +26,21 @@
         <script>
             function runCode() {
                 var code = document.getElementById('codeEditor').value;
-                // Send this code to your server to compile and run
-                // This is a complex task and involves server-side programming
-                // You would need to use a server-side language like Node.js with a C++ compiler
-                // The output should be sent back to the client and displayed in the output div
+            
+                fetch('http://localhost:3000/compile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ code: code }),
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').innerText = data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
             }
         </script>
     </body>
