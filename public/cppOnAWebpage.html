@@ -26,6 +26,7 @@
         <script>
             function runCode() {
                 var code = document.getElementById('codeEditor').value;
+                console.log('Code:', code);  // Debugging line
             
                 fetch('http://localhost:3000/compile', {
                     method: 'POST',
@@ -36,6 +37,7 @@
                 })
                 .then(response => response.text())
                 .then(data => {
+                    console.log('Response:', data);  // Debugging line
                     document.getElementById('output').innerText = data;
                 })
                 .catch((error) => {
