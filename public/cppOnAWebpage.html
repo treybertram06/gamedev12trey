@@ -2,6 +2,12 @@
     <head>
         <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
         <title>C++ on a Webpage</title>
+        <style>
+            #codeEditor, #output {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
     </head>
     <body class="body01">
         <div class="navbar">
@@ -12,10 +18,19 @@
         <h5>Version 0.0.1</h5>
         <h1 class="pageTitle">C++ on a Webpage</h1>
         <br><hr>
-        <textarea id="code" rows="50" cols="100">
-        </textarea>
+        <textarea id="codeEditor"></textarea>
         <br>
-        <button id="run-button">Run</button><br>
+        <button onclick="runCode()">Run Code</button>
         <div id="output"></div>
+
+        <script>
+            function runCode() {
+                var code = document.getElementById('codeEditor').value;
+                // Send this code to your server to compile and run
+                // This is a complex task and involves server-side programming
+                // You would need to use a server-side language like Node.js with a C++ compiler
+                // The output should be sent back to the client and displayed in the output div
+            }
+        </script>
     </body>
 </html>
