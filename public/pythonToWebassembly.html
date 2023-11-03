@@ -1,9 +1,16 @@
 <html>
   <head>
+    <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.0/brython.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.0/brython_stdlib.min.js"></script>
+    <title>Python to Webassembly</title>
   </head>
-  <body onload="brython()">
+  <body class="body01" onload="brython()">
+
+    <div class="navbar">
+      <a href="./index.html">Index</a>
+      <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
+  </div>
     <textarea id="code" rows="10" cols="50">
 class Math:
   def add(): 
@@ -22,7 +29,7 @@ class Math:
         result = -result
     print(result)
 
-Math.add()
+#Math.add()
 Math.multiply()
 
       </textarea>
