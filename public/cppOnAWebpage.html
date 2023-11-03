@@ -18,32 +18,94 @@
         <h5>Version 0.0.1</h5>
         <h1 class="pageTitle">C++ on a Webpage</h1>
         <br><hr>
-        <textarea id="codeEditor"></textarea>
-        <br>
-        <button onclick="runCode()">Run Code</button>
-        <div id="output"></div>
+        <pre>
+            ``` express.js
+            const express = require('express');
+            const cors = require('cors');
+            const fs = require('fs');
+            const { exec } = require('child_process');
+            const app = express();
 
-        <script>
-            function runCode() {
-                var code = document.getElementById('codeEditor').value;
-                console.log('Code:', code);  // Debugging line
-            
-                fetch('http://localhost:3000/compile', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ code: code }),
-                })
-                .then(response => response.text())
-                .then(data => {
-                    console.log('Response:', data);  // Debugging line
-                    document.getElementById('output').innerText = data;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
+            app.use(cors());
+            app.use(express.json());
+
+            app.post('/compile', (req, res) => {
+                const code = req.body.code;
+                console.log('Received code:', code);  // Debugging line
+                // Write the code to a .cpp file
+                fs.writeFileSync('temp.cpp', code);
+                // Compile and run the .cpp file
+                exec('g++ temp.cpp -o temp && ./temp', (error, stdout, stderr) => {
+                    if (error) {
+                        console.log(`error: ${error.message}`);
+                        return;
+                    }
+                    if (stderr) {
+                        console.log(`stderr: ${stderr}`);
+                        return;
+                    }
+                    // Send the output back to the client
+                    res.send(stdout);
                 });
-            }
-        </script>
+            });
+
+            app.listen(3000, () => console.log('Server started on port 3000'));
+            ```
+
+            ``` index.html
+            <code>
+            <html>
+                <head>
+                    <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
+                    <title>C++ on a Webpage</title>
+                    <style>
+                        #codeEditor, #output {
+                            width: 100%;
+                            height: 300px;
+                        }
+                    </style>
+                </head>
+                <body class="body01">
+                    <div class="navbar">
+                        <a href="./index.html">Index</a>
+                        <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
+                    </div>
+                
+                    <h5>Version 0.0.1</h5>
+                    <h1 class="pageTitle">C++ on a Webpage</h1>
+                    <br><hr>
+                    <textarea id="codeEditor"></textarea>
+                    <br>
+                    <button onclick="runCode()">Run Code</button>
+                    <div id="output"></div>
+                
+                    <script>
+                        function runCode() {
+                            var code = document.getElementById('codeEditor').value;
+                            console.log('Code:', code);  // Debugging line
+                        
+                            fetch('http://localhost:3000/compile', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ code: code }),
+                            })
+                            .then(response => response.text())
+                            .then(data => {
+                                console.log('Response:', data);  // Debugging line
+                                document.getElementById('output').innerText = data;
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+                        }
+                    </script>
+                </body>
+            </html>
+        </code>
+                ```
+        </pre>
+ 
     </body>
 </html>
