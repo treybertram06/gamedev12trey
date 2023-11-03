@@ -54,32 +54,32 @@
 
             ``` index.html
             <code>
-            <html>
-                <head>
-                    <link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css">
-                    <title>C++ on a Webpage</title>
-                    <style>
+
+                &lt;head&gt;
+                &lt;link rel="stylesheet" href="https://treybertram06.github.io/gamedev12trey/static/styles.css"&gt;
+                    &lt;title&gt;C++ on a Webpage&lt;/title&gt;
+                    &lt;style&gt;
                         #codeEditor, #output {
                             width: 100%;
                             height: 300px;
                         }
-                    </style>
-                </head>
-                <body class="body01">
-                    <div class="navbar">
-                        <a href="./index.html">Index</a>
-                        <a href="https://github.com/treybertram06/gamedev12trey/tree/main">Github</a>
-                    </div>
+                    &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body class="body01"&gt;
+                    &lt;div class="navbar"&gt;
+                        &lt;a href="./index.html"&gt;Index&lt/a&gt;
+                        &lt;a href="https://github.com/treybertram06/gamedev12trey/tree/main"&gt;Github&lt;/a&gt;
+                    &lt;/div&gt;
                 
-                    <h5>Version 0.0.1</h5>
-                    <h1 class="pageTitle">C++ on a Webpage</h1>
-                    <br><hr>
-                    <textarea id="codeEditor"></textarea>
-                    <br>
-                    <button onclick="runCode()">Run Code</button>
-                    <div id="output"></div>
+                    &lt;h5&gt;Version 0.0.1&lt/h5&gt;
+                    &lt;h1 class="pageTitle"&gt;C++ on a Webpage&lt;/h1&gt;
+                    &lt;br&gt;&lt;hr&gt;
+                    &lt;textarea id="codeEditor"&gt;&lt;/textarea&gt;
+                    &lt;br&gt;
+                    &lt;button onclick="runCode()"&gt;Run Code&lt;/button&gt;
+                    &lt;div id="output"&gt;&lt;/div&gt;
                 
-                    <script>
+                    &lt;script&gt;
                         function runCode() {
                             var code = document.getElementById('codeEditor').value;
                             console.log('Code:', code);  // Debugging line
@@ -91,18 +91,18 @@
                                 },
                                 body: JSON.stringify({ code: code }),
                             })
-                            .then(response => response.text())
-                            .then(data => {
+                            .then(response =&gt; response.text())
+                            .then(data =&gt; {
                                 console.log('Response:', data);  // Debugging line
                                 document.getElementById('output').innerText = data;
                             })
-                            .catch((error) => {
+                            .catch((error) =&gt; {
                                 console.error('Error:', error);
                             });
                         }
-                    </script>
-                </body>
-            </html>
+                    &lt;/script&gt;
+                &lt;/body&gt;
+
         </code>
                 ```
         </pre>
