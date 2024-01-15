@@ -110,8 +110,10 @@ function myCheckHit(){
    }
 
    if ( myHitOther('myImg02','myImg03') ){
+        document.getElementById('myImg03').style.top = "-100px"
         alert('You win!')
         window.location.href = "actual game";
+
    }
 
 }  // end of myCheckHit()
@@ -121,5 +123,5 @@ function myCheckHit(){
 
     <img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="gameAssets/characterBasic.png">
     <img id="myImg02" style="position:absolute; width:100px; height:80px; top:400px; left:600px;" src="gameAssets/bossMan.png">
-    <img id="myImg03" style="position:absolute; width:100px; height:80px; top:100px; left:0px;" src="gameAssets/P2.png">
+    <img id="myImg03" style="position:absolute; width:100px; height:80px; top:-100px; left:0px;" src="gameAssets/P2.png">
 </body>
