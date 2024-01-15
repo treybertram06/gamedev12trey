@@ -3,11 +3,12 @@
         #myBody {
             background-image: url("gameAssets/floor.png");
             background-size: 120%;
+            background-position: 0px -500px;
         }
     </style>
 </head>
 
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="gameAssets/floor.png">
+<body id="myBody" background="gameAssets/floor.png">
 
     <br><br><br><br>
    
@@ -112,7 +113,7 @@ function myCheckHit(){
    if ( myHitOther('myImg02','myImg03') ){
         document.getElementById('myImg03').style.top = "-100px"
         alert('You win!')
-        window.location.href = "actual game";
+        window.location.href = "https://treybertram06.github.io/GameDevFinal/index.html";
 
    }
 
