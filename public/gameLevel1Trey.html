@@ -43,6 +43,7 @@ document.onkeydown = function(e) {
             // start moving myImg03 1px to the right every 10ms
             setInterval(function() {
                 document.getElementById('myImg03').style.left = parseInt(document.getElementById('myImg03').style.left) + 1 + 'px';
+                myCheckHit()     // checks for all collisions
             }, 10);
             break;
     }
