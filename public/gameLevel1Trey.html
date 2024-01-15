@@ -34,9 +34,11 @@ document.onkeydown = function(e) {
             // get the left position and width of myImg01
             let img01Left = parseInt(document.getElementById('myImg01').style.left);
             let img01Width = parseInt(document.getElementById('myImg01').style.width);
+            let img01Top = parseInt(document.getElementById('myImg01').style.top);
             
             // set the left position of myImg03 to the right side of myImg01
             document.getElementById('myImg03').style.left = img01Left + img01Width + 'px';
+            document.getElementById('myImg03').style.top = img01Top + 'px';
             
             // start moving myImg03 1px to the right every 10ms
             setInterval(function() {
