@@ -84,46 +84,17 @@ function myHitOther(my1,my2){
 
 function myCheckHit(){
     myKey = 0
-   if ( myHitOther('myImg01','myImg02') && myKey > 0){
-       alert('you win')
-       window.location.href = "https://treybertram06.github.io/gamedev12trey/public/threeJsHellTreyDanielJon.html";
+   if ( myHitOther('myImg01','myImg02') ){
+        alert('You lose!')
+        location.reload()
    }
-
-   if ( myHitOther('myImg01','myImg02') && myKey == 0){
-     alert('you lose') 
-     window.location.href = "https://treybertram06.github.io/gamedev12trey/public/triviaTrey.html";
-   }
-
-
-   if ( myHitOther('myImg01','myImg03') ){
-       alert('you now have a key') 
-        myKey = 1
-      
-        document.getElementById('howManyKeys').innerHTML = myKey
-         document.getElementById('myImg03').style.width = '0'
-         document.getElementById('myImg03').style.height = '0'
-       
-   }
-
-   if ( myHitOther('myImg01','myImg04') ){
-       alert('you win')
-        window.location.replace("https://treybertram06.github.io/gamedev12trey/public/threeJsHellTreyDanielJon.html");
-   }
-
-  
-
-
-
-
-
 
 }  // end of myCheckHit()
 
 
     </script>
 
-    <img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="bort.jpg">
-    <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="trap.jpg">
-    <img id="myImg03" style="position:absolute; width:100px; height:80px; top:0px; left:450px;" src="goldpump.jpg">
-    <img id="myImg04" style="position:absolute; width:100px; height:80px; top:0px; left:650px;" src="VicRoy.jpg">
+    <img id="myImg01" style="position:absolute; width:100px; height:80px; top:0px; left:50px;"  src="gameAssets/characterBasic.png">
+    <img id="myImg02" style="position:absolute; width:100px; height:80px; top:0px; left:250px;" src="gameAssets/bossMan.png">
+    <img id="myImg03" style="position:absolute; width:100px; height:80px; top:-100px; left:0px;" src="gameAssets/P2.png">
 </body>
